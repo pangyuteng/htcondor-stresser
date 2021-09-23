@@ -2,3 +2,4 @@
 log/*.txt
 stress_it.sub
 stress_it.sh
+docker_stderror

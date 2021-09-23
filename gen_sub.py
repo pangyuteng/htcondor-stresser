@@ -45,7 +45,8 @@ with open('stress_it.sub','w') as f:
 
 commandstr=f'''#!/bin/bash
 
-stressapptest -s 20 -M 256 -m 8 -W -f {myshare}/file1 -f {myshare}/file2 -f {myshare}/file3
+export myfolder={myshare}/$(openssl rand -hex 8)
+stressapptest -s 20 -M 256 -m 8 -W -f $myfolder/file1 -f $myfolder/file2 -f $myfolder/file3
 
 '''
 with open('stress_it.sh','w') as f:
