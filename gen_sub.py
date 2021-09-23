@@ -12,9 +12,9 @@ universe = docker
 docker_image = {docker_url}
 
 # set the log, error and output files 
-log = log/$(cluster).$(process).log.txt
-error = log/$(cluster).$(process).err.txt
-output = log/$(cluster).$(process).out.txt
+log = log/$(cluster).$(process).log
+error = log/$(cluster).$(process).err
+output = log/$(cluster).$(process).out
 
 # take our python script to the compute node
 transfer_input_files = stress_it.sh

@@ -1,5 +1,7 @@
 **/__pycache__/*
-log/*.txt
+log/*.err
+log/*.out
+log/*.log
 stress_it.sub
 stress_it.sh
 docker_stderror
