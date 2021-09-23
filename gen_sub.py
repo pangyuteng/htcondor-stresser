@@ -29,11 +29,11 @@ requirements = (OpSys == "LINUX" && Arch == "X86_64")
 
 # We must request 1 CPU in addition to 1 GPU
 request_cpus = 1
-request_gpus = 1
+#request_gpus = 1
 
 # select some memory and disk space
-request_memory = 3GB
-request_disk = 5GB
+#request_memory = 3GB
+#request_disk = 5GB
 
 
 # set the executable to run
