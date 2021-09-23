@@ -1,6 +1,5 @@
 import os
 
-
 myshare = os.environ['MYSHARE']
 docker_url = os.environ['DOCKER_URL']
 
@@ -38,11 +37,16 @@ request_disk = 5GB
 
 
 # Tell HTCondor to run 1 instances of our job:
-queue 1
+queue 10
 
 '''
 with open('stress_it.sub','w') as f:
     f.write(template)
 
+commandstr=f'''#!/bin/bash
+
+stressapptest -s 20 -M 256 -m 8 -W -f {myshare}/file1 -f {myshare}/file2 -f {myshare}/file3
+
+'''
 with open('stress_it.sh','w') as f:
     f.write(commandstr)
