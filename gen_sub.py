@@ -36,6 +36,10 @@ request_memory = 3GB
 request_disk = 5GB
 
 
+# set the executable to run
+executable = stress_it.sh
+arguments = "hello-world"
+
 # Tell HTCondor to run 1 instances of our job:
 queue 10
 
@@ -46,7 +50,9 @@ with open('stress_it.sub','w') as f:
 commandstr=f'''#!/bin/bash
 
 export myfolder={myshare}/$(openssl rand -hex 8)
-stressapptest -s 20 -M 256 -m 8 -W -f $myfolder/file1 -f $myfolder/file2 -f $myfolder/file3
+mkdir -p $myfolder
+echo $myfolder
+stressapptest -s 60 -M 256 -m 8 -W -f $myfolder/file1 -f $myfolder/file2 -f $myfolder/file3
 
 '''
 with open('stress_it.sh','w') as f:
